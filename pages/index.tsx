@@ -2,12 +2,14 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import { Button } from '@mui/material';
+import {useTheme} from '@mui/material/styles'
 
 export default function Home() {
+  const theme = useTheme()
   return (
     <>
       <Head>
-        <meta charset='UTF-8' />
+        <meta charSet='UTF-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <link
           rel='icon'
@@ -19,7 +21,7 @@ export default function Home() {
         <title>Frontend Mentor | Interactive comments section</title>
       </Head>
       <div className={styles.attribution}>
-        <Button variant='contained' sx={{ backgroundColor: 'red' }}>
+        <Button variant='contained' sx={{ backgroundColor: theme.colors.moderateBlue }}>
           Hello
         </Button>
         Challenge by {''}
