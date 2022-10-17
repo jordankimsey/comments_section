@@ -4,6 +4,8 @@ import styles from '../styles/Home.module.css';
 import { Button } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Footer from '../components/Footer';
+import Comment from '../components/Comment';
+import Reply from '../components/Reply';
 
 export default function Home() {
   const theme = useTheme();
@@ -22,7 +24,8 @@ export default function Home() {
         <title>Frontend Mentor | Interactive comments section</title>
       </Head>
       <div  className={styles.container}>
-        
+        <Comment/>
+        <Reply />
         <footer className={styles.footer}>
           <Footer />
         </footer>

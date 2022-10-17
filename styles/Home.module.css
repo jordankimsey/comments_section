@@ -7,8 +7,10 @@
 }
 
 .container {
-   min-Height: 100vh; 
+   height: 100vh; 
+   overflow-y: auto;
    position: relative;
+   background-color: hsl(228, 33%, 97%);
 }
 
 .footer {
