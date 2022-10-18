@@ -7,7 +7,7 @@
 }
 
 .container {
-   height: 100vh; 
+   min-height: 100vh; 
    overflow-y: auto;
    position: relative;
    background-color: hsl(228, 33%, 97%);

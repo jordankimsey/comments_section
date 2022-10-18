@@ -7,10 +7,9 @@ import Minus from '../public/images/icon-minus.svg';
 import Reply from '../public/images/icon-reply.svg';
 import Edit from '../public/images/icon-edit.svg';
 import Delete from '../public/images/icon-delete.svg';
+import {ReplyType} from './Comment'
 
-
-const CommentReply = () => {
-      const isUser = true;
+const CommentReply = ({data, currentUser} : {data: ReplyType, currentUser: string}) => {
     const theme = useTheme();
   return (
     <Card
@@ -20,6 +19,7 @@ const CommentReply = () => {
         py: 2,
         mb: 2,
         px: 2,
+        ml: 1.5
       }}
     >
       <Box
@@ -27,23 +27,23 @@ const CommentReply = () => {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-        //   backgroundColor: 'red',
+          //   backgroundColor: 'red',
         }}
       >
-        <Box sx={{  }}>
+        <Box sx={{}}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             {/* image */}
             <Image
-              src={'/images/avatars/image-juliusomo.png'}
+              src={data.user.image.png}
               alt='avatar'
               width={35}
               height={35}
             />
             {/* name */}
             <Typography variant='h6' sx={{ pl: 1.3 }}>
-              amyrobson
+              {data.user.username}
             </Typography>
-            {isUser && (
+            {data.user.username === currentUser && (
               <Box>
                 <Typography
                   sx={{
@@ -60,14 +60,13 @@ const CommentReply = () => {
             )}
             {/* time */}
             <Typography variant='body1' sx={{ pl: 2 }}>
-              1 month ago
+              {data.createdAt}
             </Typography>
           </Box>
           <Box sx={{ pt: 1 }}>
             <Typography variant='body2'>
-              Impressive! Though it seems the drag feature could be improved.
-              But overall it looks incredible. You've nailed the design and the
-              responsiveness at various breakpoints works really well.
+              <span style={{ color: 'blue' }}>@{data.replyingTo}</span>{' '}
+              {data.content}
             </Typography>
           </Box>
         </Box>
@@ -100,7 +99,7 @@ const CommentReply = () => {
               <Typography
                 sx={{ color: theme.palette.primary.main, fontWeight: 'bold' }}
               >
-                12
+                {data.score}
               </Typography>
               {/* decrement votes */}
               <IconButton
@@ -112,7 +111,7 @@ const CommentReply = () => {
             </Box>
             {/* reply */}
             <Box>
-              {isUser ? (
+              {data.user.username === currentUser ? (
                 <>
                   <Button
                     aria-label='delete'

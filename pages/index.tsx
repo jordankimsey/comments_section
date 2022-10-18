@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
@@ -6,9 +7,13 @@ import { useTheme } from '@mui/material/styles';
 import Footer from '../components/Footer';
 import Comment from '../components/Comment';
 import Reply from '../components/Reply';
+import data from '../public/data.json'
+import CommentWithReply from '../components/CommentWithReply';
 
 export default function Home() {
   const theme = useTheme();
+  const [commentsData, setComments] = useState(data)
+ 
   return (
     <>
       <Head>
@@ -29,14 +34,17 @@ export default function Home() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            pb: 10
           }}
         >
-          <Comment />
+          <CommentWithReply data={commentsData} />
+          {/* map over comments */}
+           
           <Reply />
         </Box>
-        <footer className={styles.footer}>
+        {/* <footer className={styles.footer}>
           <Footer />
-        </footer>
+        </footer> */}
       </div>
     </>
   );

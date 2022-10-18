@@ -8,7 +8,7 @@ const Reply = () => {
   const theme = useTheme();
   return (
     <Card
-      sx={{ mx: 2, px: 2, py: 2, backgroundColor: 'white', maxWidth: 'sm'}}
+      sx={{ mx: 2, mt: 2, px: 2, py: 2, backgroundColor: 'white', minWidth: '350px'}}
     >
       <TextField
         id=''
