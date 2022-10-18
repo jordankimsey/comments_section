@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
-import { Button } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Footer from '../components/Footer';
 import Comment from '../components/Comment';
@@ -23,9 +23,17 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
         <title>Frontend Mentor | Interactive comments section</title>
       </Head>
-      <div  className={styles.container}>
-        <Comment/>
-        <Reply />
+      <div className={styles.container}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Comment />
+          <Reply />
+        </Box>
         <footer className={styles.footer}>
           <Footer />
         </footer>
