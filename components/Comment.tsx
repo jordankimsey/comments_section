@@ -7,7 +7,7 @@ import Reply from '../public/images/icon-reply.svg';
 import Edit from '../public/images/icon-edit.svg';
 import Delete from '../public/images/icon-delete.svg';
 import React from 'react';
-import CommentReply from './CommentReply';
+import CommentReply from './CommentWithReply';
 
 export type Comment = {
   id: number

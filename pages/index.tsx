@@ -37,7 +37,7 @@ export default function Home() {
             pb: 10
           }}
         >
-          <CommentWithReply data={commentsData} />
+          <CommentWithReply data={commentsData} currentUser={data.currentUser.username}/>
           {/* map over comments */}
            
           <Reply />

@@ -7,14 +7,15 @@ export type CommentsType = {
   comments: Comment;
 };
 
-const CommentWithReply = ({data}: {data: CommentsType}) => {
+const CommentWithReply = ({data, currentUser}: {data: any, currentUser: string}) => {
+  console.log(data)
   return (
     <Box>
       {data.comments.map((comment, index) => (
         <Box key={comment.id}>
           <Comment
             content={comment}
-            currentUser={data.currentUser.userName}
+            currentUser={currentUser}
           />
         </Box>
       ))}
